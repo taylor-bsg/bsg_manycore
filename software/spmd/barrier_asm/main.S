@@ -7,18 +7,10 @@
 #include "bsg_manycore_asm.h"
 
 bsg_asm_finish(0,0)
+loop:
+  beq x0, x0, loop
 
 //    barrier routine
-//
-//    (@ sign indicates the terminal node).
-//
-//    *-----------|
-//    |-----------|
-//    |-----------|
-//    |-----------|
-//    |-----------|
-//    |-----------@
-//
 //    a0 = reservation address
 barrier:
   fence
@@ -57,6 +49,10 @@ __barrier_end:
 
 
 
+//    reduction
+//    a0 = source array
+reduction:
+  
 
 
 
@@ -68,5 +64,3 @@ __barrier_end:
 
 
 
-loop:
-  beq x0, x0, loop
